@@ -1,5 +1,6 @@
 # Nuestro Primer MVT Django - CoderHouse Python
 
+<<<<<<< HEAD
 ## Proyecto Final
 
 Comision: 44065
