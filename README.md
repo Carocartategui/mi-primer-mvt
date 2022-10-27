@@ -69,7 +69,7 @@ $ git clone https://github.com/Carocartategui/mi-primer-mvt
 
 ## Correr el Servidor
 
-Los siguinetes comandos son analogos en Mac/Linux/Windows:
+Los siguientes comandos son analogos en Mac/Linux/Windows:
 
 ```bash
 cd mi-primer-mvt
