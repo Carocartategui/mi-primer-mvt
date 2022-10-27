@@ -28,6 +28,7 @@ PS C:\> python --version
 Python 3.X.X 
 ```
 
+
 En Linux/Mac tiene que abrir una terminal bash
 
 ```bash
