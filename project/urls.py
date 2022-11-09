@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from blog.views import index as blog_index
-from PrimerApp.views import index, monstrar_familiares, BuscarFamiliar, AltaFamiliar
+from PrimerApp.views import index, monstrar_familiares, BuscarFamiliar, AltaFamiliar, mostrar_amigos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('blog/', blog_index),
     path('mi-familia/buscar', BuscarFamiliar.as_view()),
     path('mi-familia/alta', AltaFamiliar.as_view()),
+    path('mis-amigos/', mostrar_amigos),
 ]
 
 

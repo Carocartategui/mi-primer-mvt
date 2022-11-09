@@ -8,3 +8,14 @@ class Familiar(models.Model):
 
     def __str__(self):
         return f"{self.nombre}, {self.numero_pasaporte}, {self.id}"
+
+
+class Amigos(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    anios_de_amistad = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.nombre}, {self.id}"
+
+

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from PrimerApp.models import Familiar
+from PrimerApp.models import Familiar, Amigos
 from PrimerApp.forms import Buscar, FamiliarForm # <--- NUEVO IMPORT
 from django.views import View # <-- NUEVO IMPORT 
 
@@ -55,3 +55,8 @@ class AltaFamiliar(View):
                                                         'msg_exito': msg_exito})
         
         return render(request, self.template_name, {"form": form})
+
+
+def mostrar_amigos(request):
+  lista_amigos = Amigos.objects.all()
+  return render(request, "PrimerApp/amigos.html", {"lista_amigos": lista_amigos})
