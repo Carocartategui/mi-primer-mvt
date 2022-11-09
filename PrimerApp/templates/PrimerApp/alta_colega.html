@@ -1,0 +1,13 @@
+{% extends 'PrimerApp/base.html' %}
+{% block titulo%} Alta de nuevo colega {% endblock %}
+{% block contenido %}
+  
+  <form action="/mi-colega/alta" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+
+  <h2 style="color:green">{{msg_exito}}</h2>
+
+{% endblock %}

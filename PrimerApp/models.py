@@ -18,4 +18,10 @@ class Amigos(models.Model):
     def __str__(self):
         return f"{self.nombre}, {self.id}"
 
+class colegas(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    numero_de_telefono = models.IntegerField()
 
+    def __str__(self):
+        return f"{self.nombre}, {self.id}"

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-from PrimerApp.models import Familiar, Amigos
-from PrimerApp.forms import Buscar, FamiliarForm # <--- NUEVO IMPORT
+from PrimerApp.models import Familiar, Amigos, colegas
+from PrimerApp.forms import Buscar, FamiliarForm, colegaForm # <--- NUEVO IMPORT
 from django.views import View # <-- NUEVO IMPORT 
 
 
@@ -60,3 +60,29 @@ class AltaFamiliar(View):
 def mostrar_amigos(request):
   lista_amigos = Amigos.objects.all()
   return render(request, "PrimerApp/amigos.html", {"lista_amigos": lista_amigos})
+
+
+def mostrar_colegas(request):
+  lista_colegas = colegas.objects.all()
+  return render(request, "PrimerApp/colegas.html", {"lista_colegas": lista_colegas})
+
+class Altacolega(View):
+
+    form_class = colegaForm
+    template_name = 'PrimerApp/alta_colega.html'
+    initial = {"nombre":"", "direccion":"", "numero_de_telefono":""}
+
+    def get(self, request):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form':form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            msg_exito = f"se cargo con éxito el familiar {form.cleaned_data.get('nombre')}"
+            form = self.form_class(initial=self.initial)
+            return render(request, self.template_name, {'form':form, 
+                                                        'msg_exito': msg_exito})
+        
+        return render(request, self.template_name, {"form": form})
